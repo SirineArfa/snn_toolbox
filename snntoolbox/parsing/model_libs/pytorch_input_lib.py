@@ -78,7 +78,7 @@ def load(path, filename):
     model_pytorch.eval()
 
     # Run on dummy input with correct shape to trace the Pytorch model.
-    input_shape = [1] + list(model_pytorch.input_shape)
+    input_shape = list(model_pytorch.input_shape)
     input_numpy = np.random.random_sample(input_shape).astype(np.float32)
     input_torch = torch.from_numpy(input_numpy).float()
     output_torch = model_pytorch(input_torch)
